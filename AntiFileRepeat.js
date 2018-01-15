@@ -40,12 +40,10 @@ class AntiFileRepeat {
 				console.log("Problem while reading the path " + actualPath);
 			}
 		}
-		console.log("OK1");
 	}
 
 	readAndDeleteAllPaths() {
 		while(this.nextPaths.length > 0) {
-			console.log("OK1");
 			let actualPath = this.nextPaths[0];
 			this.nextPaths = this.nextPaths.splice(1, this.nextPaths.lengthh);
 			// try to read the actual pathStart content
@@ -92,19 +90,6 @@ class AntiFileRepeat {
 	deleteAllRepeat() {
 		console.log(this.knownFilesPaths.length);
 		for(let index = 0; index < this.knownFilesPaths.length; index++) {
-			// fs.readFile(this.knownFilesPaths[index], 'utf8', (err, contents) => {
-			//     let ok = this.generateFileHash(contents);
-
-			//     if(!ok) {
-			//     	fs.unlink(this.knownFilesPaths[index], (err) => {
-			// 	        if(err) {
-			// 	        	console.log("Problem while deleting the file " + this.knownFilesPaths[index]);
-			// 	        }
-			// 	        console.log("file " + this.knownFilesPaths[index] + " deleted successfully");
-			// 	   });
-			//     }
-			// });
-			console.log("OK2");
 
 			let contents = fs.readFileSync(this.knownFilesPaths[index], 'utf8');
 			let ok = this.generateFileHash(contents);
